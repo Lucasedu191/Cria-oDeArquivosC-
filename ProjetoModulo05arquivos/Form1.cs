@@ -59,5 +59,22 @@ namespace ProjetoModulo05arquivos
                
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Exemplos";
+            //cria uma nova pasta e  cria um arquivo txt no repositorio
+            string nomeArquivo = nomepasta + @"\PrimeiroExemplo.txt";
+            //baseado no local é criado uma nova pasta
+            if(!Directory.Exists(nomepasta))
+            {
+                Directory.CreateDirectory(nomepasta);
+            }
+            if( !File.Exists(nomeArquivo))
+            {
+                File.Create(nomeArquivo);
+            }
+            
+        }
     }
 }
