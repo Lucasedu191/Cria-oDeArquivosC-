@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ProjetoModulo05arquivos
@@ -25,6 +19,14 @@ namespace ProjetoModulo05arquivos
             //segunda forma
 
             MessageBox.Show(System.AppDomain.CurrentDomain.BaseDirectory);
+        }
+
+        private void btnCriar_Click(object sender, EventArgs e)
+        {
+            //variavel para o nome do arquivo que sera criado
+            string nomeArq = "Arquivo.txt";
+            //criaçao do arquivo
+            Stream arquivo = File.Create(nomeArq);
         }
     }
 }
