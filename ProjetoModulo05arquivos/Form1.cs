@@ -21,7 +21,7 @@ namespace ProjetoModulo05arquivos
             MessageBox.Show(System.AppDomain.CurrentDomain.BaseDirectory);
         }
 
-        private void btnCriar_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             //variavel para o nome do arquivo que sera criado
             //para reconhecer o local deve-se colocar um @ antes ou colocar \\
@@ -43,7 +43,7 @@ namespace ProjetoModulo05arquivos
             
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             string nomeArq = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Arquivos\Arquivo.txt";
             if (File.Exists(nomeArq))
@@ -60,7 +60,7 @@ namespace ProjetoModulo05arquivos
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Exemplos";
             string nomeArq = nomepasta + @"\PrimeiroExemplo.txt";
@@ -76,33 +76,55 @@ namespace ProjetoModulo05arquivos
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        /*private void button5_Click(object sender, EventArgs e)
         {    
-            if(!txtRenomePasta.Text.Trim().Equals(string.Empty))
+           
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }*/
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Exemplos";
+            string nomeArq = nomepasta + @"\PrimeiroExemplo.txt";
+            if (File.Exists(nomeArq))
             {
-                string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Exemplos";
-             
-                if (Directory.Exists(nomepasta))
-                {       
-                    Directory.Move(nomepasta, txtRenomePasta.Text.Trim());
-                }
+                FileInfo file = new FileInfo(nomeArq);
+                textBox1.Text = String.Format("{0}{1}{2}{3}{4}", file.Name , Environment.NewLine , file.Extension , Environment.NewLine , file.Directory);
             }
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            if (!txtNomeArquivo .Text.Trim().Equals(string.Empty))
+            if (!txtRenomePasta.Text.Trim().Equals(string.Empty))
+            {
+                string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Exemplos";
+
+                if (Directory.Exists(nomepasta))
+                {
+                    Directory.Move(nomepasta, txtRenomePasta.Text.Trim());
+                }
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            if (!txtNomeArquivo.Text.Trim().Equals(string.Empty))
             {
                 string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Exemplos";
                 string nomeArq = nomepasta + @"\PrimeiroExemplo.txt";
                 if (File.Exists(nomeArq))
                 {
 
-                    File.Move(nomeArq, nomepasta + @"\"+ txtNomeArquivo.Text.Trim());
+                    File.Move(nomeArq, nomepasta + @"\" + txtNomeArquivo.Text.Trim());
                 }
             }
-
         }
     }
 }
