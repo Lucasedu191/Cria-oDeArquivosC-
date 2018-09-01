@@ -63,18 +63,46 @@ namespace ProjetoModulo05arquivos
         private void button2_Click(object sender, EventArgs e)
         {
             string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Exemplos";
-            //cria uma nova pasta e  cria um arquivo txt no repositorio
-            string nomeArquivo = nomepasta + @"\PrimeiroExemplo.txt";
-            //baseado no local é criado uma nova pasta
+            string nomeArq = nomepasta + @"\PrimeiroExemplo.txt";
+        
             if(!Directory.Exists(nomepasta))
             {
                 Directory.CreateDirectory(nomepasta);
             }
-            if( !File.Exists(nomeArquivo))
+            if( !File.Exists(nomeArq))
             {
-                File.Create(nomeArquivo);
+                File.Create(nomeArq);
             }
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {    
+            if(!txtRenomePasta.Text.Trim().Equals(string.Empty))
+            {
+                string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Exemplos";
+             
+                if (Directory.Exists(nomepasta))
+                {       
+                    Directory.Move(nomepasta, txtRenomePasta.Text.Trim());
+                }
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!txtNomeArquivo .Text.Trim().Equals(string.Empty))
+            {
+                string nomepasta = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Exemplos";
+                string nomeArq = nomepasta + @"\PrimeiroExemplo.txt";
+                if (File.Exists(nomeArq))
+                {
+
+                    File.Move(nomeArq, nomepasta + @"\"+ txtNomeArquivo.Text.Trim());
+                }
+            }
+
         }
     }
 }
