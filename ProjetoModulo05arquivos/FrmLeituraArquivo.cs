@@ -43,17 +43,33 @@ namespace ProjetoModulo05arquivos
             //se o arquivo ja existir aparece a mensagem se não ele aparece outra mensagem e realiza a criaçao
             if (File.Exists(nomeArq))
             {
-                //realiza a leitura linha a linha do documento 
-                StreamReader reader = new StreamReader(nomeArq);
-                string linha = reader.ReadLine();
-                lsbConteudo.Items.Clear();
-                while(linha != null)
+                // Primeira Forma
+                // //realiza a leitura linha a linha do documento 
+                // StreamReader reader = new StreamReader(nomeArq);
+                // string linha = reader.ReadLine();
+                // lsbConteudo.Items.Clear();
+                // while(linha != null)
+                // {
+                //     lsbConteudo.Items.Add(linha);
+                //     linha = reader.ReadLine();
+                //
+                // }
+                // reader.Close();
+
+                // Segunda forma
+
+                using (StreamReader reader = new StreamReader(nomeArq))
                 {
-                    lsbConteudo.Items.Add(linha);
-                    linha = reader.ReadLine();
+                    string linha = reader.ReadLine();
+                    lsbConteudo.Items.Clear();
+                    while(linha != null)
+                    {
+                        lsbConteudo.Items.Add(linha);
+                        linha = reader.ReadLine();
+                    }
 
                 }
-                reader.Close();
+
             }
         }
 
@@ -63,20 +79,32 @@ namespace ProjetoModulo05arquivos
             //para reconhecer o local deve-se colocar um @ antes ou colocar \\
             string nomeArq = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Arquivos\Arquivo.txt";
             //se o arquivo ja existir aparece a mensagem se não ele aparece outra mensagem e realiza a criaçao
-            if (File.Exists(nomeArq))
+            // if (File.Exists(nomeArq))
+            // {
+            //     //realiza a leitura linha a linha do documento 
+            //     StreamReader reader = File.OpenText(nomeArq);
+            //     lsbConteudo.Items.Clear();
+            //     while (!reader.EndOfStream)
+            //     {
+            //         string linha = reader.ReadLine();
+            //         lsbConteudo.Items.Add(linha);
+            //     }
+            //     
+            //     reader.Close();
+            // }
+
+
+            //utilizando a forma using vc faz com que o c# 
+            //atue encontrando uma forma de arrumar algum erro durante a execucao
+            using (StreamReader reader = File.OpenText(nomeArq))
             {
-                //realiza a leitura linha a linha do documento 
-                StreamReader reader = File.OpenText(nomeArq);
                 lsbConteudo.Items.Clear();
                 while (!reader.EndOfStream)
-                {
-                    string linha = reader.ReadLine();
-                    lsbConteudo.Items.Add(linha);
-                }
-                
-                reader.Close();
+                 {
+                     string linha = reader.ReadLine();
+                     lsbConteudo.Items.Add(linha);
+                 }
             }
-
 
         }
     }
