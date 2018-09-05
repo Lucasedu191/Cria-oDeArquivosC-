@@ -39,8 +39,8 @@ namespace ProjetoModulo05arquivos
         {
             //variavel para o nome do arquivo que sera criado
             //para reconhecer o local deve-se colocar um @ antes ou colocar \\
-            string nomeArq = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Arquivos\Arquivo.txt";
-            //se o arquivo ja existir aparece a mensagem se não ele aparece outra mensagem e realiza a criaçao
+                string nomeArq = @"C:\Users\adm\Documents\Visual Studio 2017\exercicios\Curso Forms\ProjetoModulo05arquivos\ProjetoModulo05arquivos\bin\Debug\Arquivos\Arquivo.txt";
+                //se o arquivo ja existir aparece a mensagem se não ele aparece outra mensagem e realiza a criaçao
             if (File.Exists(nomeArq))
             {
                 // Primeira Forma

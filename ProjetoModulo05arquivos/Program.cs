@@ -16,7 +16,7 @@ namespace ProjetoModulo05arquivos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLeituraArquivo());
+            Application.Run(new FrmGravacao());
         }
     }
 }
