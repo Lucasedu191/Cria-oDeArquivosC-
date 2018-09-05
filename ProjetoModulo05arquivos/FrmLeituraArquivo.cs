@@ -107,5 +107,45 @@ namespace ProjetoModulo05arquivos
             }
 
         }
+
+        private void btnProcurar_Click(object sender, EventArgs e)
+        {
+            string nomeArq;
+            //faz a acao de criar a nova janela para encontrar o documento que sera lido 
+            //instanciou
+            OpenFileDialog openFile = new OpenFileDialog();
+            //deixa o titulo da janela com o seguinte nome 
+            openFile.Title = "Selecionar Arquivo";
+            //faz com que seja aceito apenas um arquivo por vez
+            openFile.Multiselect = false;
+            //gerenciae verifica se o local onde vai ser encontrado realmente existe
+            // nos casos que precise salvar o documento
+            openFile.CheckFileExists = true;
+            //estensao que sera utilizada como default
+            openFile.DefaultExt = "txt";
+            //definir abrir apenas arquivo texto utilizando um filtro
+            openFile.Filter = "Arquivo de Texto(*.txt)|*.txt";
+
+            //mostrar na tela e verifica se o arquivo existe e tem a extensao txt
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                nomeArq = openFile.FileName;
+
+                // utiliza a sintaxe anterior que realiza a leitura do documento
+                using (StreamReader reader = new StreamReader(nomeArq))
+                {
+                    string linha;
+                   
+                    lsbConteudo.Items.Clear();
+                    while ((linha = reader.ReadLine()) != null)
+                    {
+                        lsbConteudo.Items.Add(linha);
+                        
+                    }
+
+                }
+            }
+                
+        }
     }
 }
